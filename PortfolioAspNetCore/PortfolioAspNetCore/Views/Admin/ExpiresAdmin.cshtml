@@ -1,0 +1,47 @@
+﻿@{
+	var expires = ViewBag.Expiretis;
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/style.css">
+<a class="nav-link text-dark" href="http://localhost:3529/Admin/AboutAdmin">About CRUD</a>
+<div class="container">
+	<form class="form-position">
+
+		<div class="form-group">
+			<label>Article:</label>
+			<input type="text" name="article" class="form-control" required>
+		</div>
+
+		<div class="form-group">
+			<label>Date of Expiretis:</label>
+			<input type="text" name="dateOfExpiretis" class="form-control" required>
+		</div>
+
+		<div class="form-group">
+			<label>Description:</label>
+			<input type="text" name="description" class="form-control" required>
+		</div>
+
+		<button type="submit" class="btn btn-success save-btn">Save</button>
+
+	</form>
+	<br />
+	<table class="table table-bordered data-table">
+		<thead>
+		<th>Article</th>
+		<th>DateOfExpiretis</th>
+		<th>Description</th>
+		<th width="200px">Action</th>
+		</thead>
+		<tbody>
+			@foreach (var element in expires)
+			{
+				<tr data-id='@element.Id' data-article='@element.Article' data-dateOfExpiretis='@element.DateOfExpiretis' data-description='@element.Description'><td>@element.Article</td><td>@element.DateOfExpiretis</td><td>@element.Description</td><td><button class='btn btn-info btn-xs btn-edit ml-20'>Edit</button><button class='btn btn-danger btn-xs btn-delete ml-20'>Delete</button></td></tr>
+			}
+		</tbody>
+	</table>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="~/js/expires.js"></script>

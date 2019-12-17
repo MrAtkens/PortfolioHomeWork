@@ -1,0 +1,17 @@
+﻿@using PortfolioAspNetCore.ViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model AboutViewModel
+
+@{
+	ViewData["Title"] = "Вход";
+	var descriptionFromTxT = ViewBag.Description;
+}
+
+<h1>About Me Description</h1>
+<div class="text-center">
+	<form asp-action="EditAbout" method="post">
+		<h1>Вход</h1>
+		<input asp-for="Description" type="text" required value="@descriptionFromTxT" placeholder="Description" class="form-control" />
+		<input type="submit" value="Изменить" />
+	</form>
+</div>
